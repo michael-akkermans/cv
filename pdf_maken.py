@@ -1,4 +1,4 @@
-"""Maakt van cv.md een pdf en controleert die.
+"""Maakt van README.md, het cv in markdown, een pdf en controleert die.
 
 Gebruik, vanuit de repo-root van ~/os: uv run cv/pdf_maken.py
 
@@ -18,7 +18,7 @@ from markdown_it import MarkdownIt
 from playwright.sync_api import sync_playwright
 
 MAP = Path(__file__).parent
-BRON = MAP / "cv.md"
+BRON = MAP / "README.md"
 STIJL = MAP / "stijl.css"
 DOEL = MAP / "Michael-Akkermans-cv.pdf"
 MAX_PAGINAS = 2
@@ -40,7 +40,7 @@ def kop_maken(kop_html: str) -> str:
         r"<h1>(.*?)</h1>\s*<p>(.*?)</p>\s*<p>(.*?)</p>", kop_html, re.DOTALL
     )
     if treffer is None:
-        raise ValueError("cv.md begint niet met naam, functie en contactregel")
+        raise ValueError("het cv begint niet met naam, functie en contactregel")
     naam, functie, contact = treffer.groups()
     contact = contact.replace(" | ", "\n")
     return (
