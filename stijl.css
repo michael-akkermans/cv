@@ -1,0 +1,177 @@
+/* Opmaak van het cv: labels en datums in de linkermarge, licht thema.
+   Geen letter-spacing: dat breekt woorden in de tekst die software uit de pdf leest. */
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 400;
+  src: url(fonts/source-serif-4-400.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Serif";
+  font-weight: 600;
+  src: url(fonts/source-serif-4-600.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 400;
+  src: url(fonts/source-sans-3-400.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Source Sans";
+  font-weight: 600;
+  src: url(fonts/source-sans-3-600.woff2) format("woff2");
+}
+
+:root {
+  --inkt: #20282f;
+  --gedempt: #5b6770;
+  --accent: #35506a;
+  --marge: 27mm;
+  --tussenruimte: 4mm;
+}
+
+@page {
+  size: A4;
+  margin: 14mm 0 13mm;
+}
+@page :first {
+  margin-top: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: var(--inkt);
+}
+body {
+  font: 400 9.6pt/1.34 "Source Serif", serif;
+  text-rendering: geometricPrecision;
+}
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+strong {
+  font-weight: 600;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pagina {
+  padding: 0 15mm;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  border-bottom: 1pt solid var(--inkt);
+  padding: 14mm 0 2.2mm;
+}
+header h1 {
+  grid-column: 1;
+  font-size: 23pt;
+  font-weight: 600;
+  line-height: 1.05;
+}
+.functie {
+  grid-column: 1;
+  margin-top: 0.8mm;
+  font: 400 11pt "Source Sans", sans-serif;
+  color: var(--accent);
+}
+.contact {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  font: 400 9.2pt/1.35 "Source Sans", sans-serif;
+  color: var(--gedempt);
+  text-align: right;
+  white-space: pre-line;
+}
+
+section {
+  display: grid;
+  grid-template-columns: var(--marge) 1fr;
+  column-gap: var(--tussenruimte);
+  margin-top: 3.4mm;
+}
+h2 {
+  grid-column: 1;
+  font: 600 9.6pt/1.35 "Source Sans", sans-serif;
+  color: var(--accent);
+}
+section > :not(h2) {
+  grid-column: 2;
+}
+section.werkervaring {
+  display: block;
+}
+section.werkervaring h2 {
+  margin-bottom: 0.8mm;
+}
+
+article {
+  margin-top: 2.4mm;
+  break-inside: avoid;
+}
+h3 {
+  display: grid;
+  grid-template-columns: var(--marge) 1fr;
+  column-gap: var(--tussenruimte);
+  font-size: 9.6pt;
+  font-weight: 400;
+}
+h3 .titel {
+  grid-column: 2;
+  grid-row: 1;
+  font-weight: 600;
+}
+h3 .bedrijf {
+  grid-column: 2;
+  grid-row: 2;
+  color: var(--gedempt);
+}
+h3 .datum {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  font: 400 8.8pt/1.45 "Source Sans", sans-serif;
+  color: var(--gedempt);
+}
+article > p,
+article > ul {
+  margin-left: calc(var(--marge) + var(--tussenruimte));
+}
+
+li {
+  margin-top: 0.3mm;
+  padding-left: 3mm;
+  text-indent: -3mm;
+}
+li::before {
+  content: "– ";
+  color: var(--gedempt);
+}
+section.vaardigheden li,
+section.opleiding li,
+section.talen li {
+  padding-left: 0;
+  text-indent: 0;
+}
+section.vaardigheden li::before,
+section.opleiding li::before,
+section.talen li::before {
+  content: none;
+}

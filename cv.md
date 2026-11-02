@@ -2,7 +2,7 @@
 
 DevOps & AI Engineer
 
-Breda | info@makkermans.nl | linkedin.com/in/michaelakkermans
+Breda | [info@makkermans.nl](mailto:info@makkermans.nl) | [linkedin.com/in/michaelakkermans](https://www.linkedin.com/in/michaelakkermans)
 
 ## Profiel
 
